@@ -1,0 +1,74 @@
+:root {
+  --bg: #e9eef2;
+  --surface: #ffffff;
+  --ink: #14202b;
+  --muted: #5d6b78;
+  --line: #cfd8e0;
+  --accent: #ffc83d;
+  --danger: #b3261e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101820;
+    --surface: #18232e;
+    --ink: #eaf0f5;
+    --muted: #93a2b0;
+    --line: #2a3947;
+    --danger: #ff8a80;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.5 "Figtree", system-ui, sans-serif;
+}
+main { max-width: 36rem; margin: 0 auto; padding: 4rem 1.25rem; }
+h1 {
+  font: 800 clamp(2rem, 7vw, 3rem)/1.05 "Bricolage Grotesque", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0 0 .25rem;
+}
+#count { margin: 0 0 2rem; color: var(--muted); }
+
+#add-form { display: flex; gap: .5rem; margin-bottom: 1.5rem; }
+#title {
+  flex: 1; min-width: 0;
+  padding: .8rem 1rem;
+  font: inherit; color: inherit;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+}
+button {
+  font: 700 .95rem "Bricolage Grotesque", system-ui, sans-serif;
+  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  padding: .8rem 1.1rem;
+  background: var(--accent);
+  color: #14202b;
+}
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+li {
+  display: flex; align-items: center; gap: .75rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: .7rem .9rem;
+}
+li input[type="checkbox"] { width: 1.25rem; height: 1.25rem; accent-color: var(--ink); flex: none; }
+li span { flex: 1; overflow-wrap: anywhere; }
+li.done span { text-decoration: line-through; color: var(--muted); }
+li .del {
+  background: transparent; color: var(--muted);
+  padding: .4rem .6rem; font-weight: 500;
+}
+li .del:hover { color: var(--danger); }
+
+#error { color: var(--danger); font-weight: 500; }
+#empty { color: var(--muted); }
+.sr { position: absolute; left: -9999px; }
